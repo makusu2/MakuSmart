@@ -20,6 +20,6 @@ class PiCar:
         print("Got data: ",recData)
         
 if __name__ == '__main__':
-	piCar = PiCar()
+    piCar = PiCar()
     while True:
         piCar.checkForData()
