@@ -27,6 +27,8 @@ class Car:
             pinNum = carPins[carPin]
             GPIO.setup(pinNum,GPIO.OUT)
             GPIO.output(pinNum,0)
+        GPIO.setup(enablePin,GPIO.OUT)
+        GPIO.output(enablePin,1)
         
         mainloop()
     def forward(self):
