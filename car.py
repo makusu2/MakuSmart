@@ -37,19 +37,19 @@ class Car:
         GPIO.output(enablePin,1)
         
         mainloop()
-    def forward(self):
+    def forward(self,event=None):
         print("Moving forwards")
         self.changePin(pin=carPins['F'])
-    def backwards(self):
+    def backwards(self,event=None):
         print("Moving backwards")
         self.changePin(pin=carPins['B'])
-    def turnLeft(self):
+    def turnLeft(self,event=None):
         print("Turning left")
         self.changePin(pin=carPins['L'])
-    def turnRight(self):
+    def turnRight(self,event=None):
         print("Turning right")
         self.changePin(pin=carPins['R'])
-    def stop(self):
+    def stop(self,event=None):
         print("Stopping")
         self.clearPins()
     def clearPins(self):
