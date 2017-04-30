@@ -58,6 +58,9 @@ class Car:
     def stopTurnRight(self,event=None):
         GPIO.output(carPins['R'],0)
         
+    def stop(self,event=None):
+        self.changePin()
+        
     def clearPins(self):
         for carPin in carPins:
             pinNum = carPins[carPin]
