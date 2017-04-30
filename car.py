@@ -22,6 +22,12 @@ class Car:
         self.turnRightButton.pack()
         self.stopButton.pack()
         
+        self.master.bind("<Left>",self.turnLeft)
+        self.master.bind("<Right>",self.turnRight)
+        self.master.bind("<Up>",self.forward)
+        self.master.bind("<Down>",self.backwards)
+        self.master.bind("<Return>",self.stop)
+        
         GPIO.setmode(GPIO.BCM)#set board mode to Broadcom
         for carPin in carPins:
             pinNum = carPins[carPin]
@@ -31,6 +37,8 @@ class Car:
         GPIO.output(enablePin,1)
         
         mainloop()
+    def pressedKey(self, key):
+        
     def forward(self):
         print("Moving forwards")
         self.changePin(pin=carPins['F'])
