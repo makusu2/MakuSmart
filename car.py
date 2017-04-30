@@ -32,7 +32,7 @@ class Car:
         self.master.bind("<KeyRelease-Left>",self.stopTurnLeft)
         self.master.bind("<KeyRelease-Right>",self.stopTurnRight)
         
-        GPIO.setmode(GPIO.BCM)#set board mode to Broadcom
+        GPIO.setmode(GPIO.BCM)
         for carPin in carPins:
             pinNum = carPins[carPin]
             GPIO.setup(pinNum,GPIO.OUT)
@@ -59,21 +59,8 @@ class Car:
         GPIO.output(carPins['R'],0)
         
     def stop(self,event=None):
-        self.changePin()
-        
-    def clearPins(self):
         for carPin in carPins:
             pinNum = carPins[carPin]
             GPIO.output(pinNum,0)
-    def changePin(self,pin=None):
-        if pin==None:
-            self.clearPins()
-        else:
-            for carPin in carPins:
-                pinNum = carPins[carPin]
-                if (pin == carPin) or (pin == pinNum):
-                    GPIO.output(pinNum,1)
-                else:
-                    GPIO.output(pinNum,0)
 if __name__ == '__main__':
     car = Car()
