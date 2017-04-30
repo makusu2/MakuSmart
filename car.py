@@ -37,8 +37,6 @@ class Car:
         GPIO.output(enablePin,1)
         
         mainloop()
-    def pressedKey(self, key):
-        
     def forward(self):
         print("Moving forwards")
         self.changePin(pin=carPins['F'])
